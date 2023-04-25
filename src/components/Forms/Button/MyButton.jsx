@@ -6,7 +6,7 @@ import { Button } from 'antd';
  * Primary UI component for user interaction
  */
 
-const MyButton = ({ primary, backgroundColor, size, label, ...props }) => {
+const MyButton = ({ primary, backgroundColor, size, label,...props }) => {
   const mode = primary ? 'primary' : undefined;
   return (
     <Button
