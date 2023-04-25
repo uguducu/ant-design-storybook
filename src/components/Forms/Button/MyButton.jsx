@@ -10,7 +10,7 @@ const MyButton = ({ primary, backgroundColor, size, label,...props }) => {
   const mode = primary ? 'primary' : undefined;
   return (
     <Button
-      type="button"
+      
       className={size}
       style={backgroundColor && { backgroundColor }}
       {...props}
