@@ -6,17 +6,17 @@ import { Button } from 'antd';
  * Primary UI component for user interaction
  */
 
-const MyButton = ({ primary, backgroundColor, size, label,...props }) => {
-  const mode = primary ? 'primary' : undefined;
+const MyButton = ({ type, backgroundColor, size, icon, label,...props }) => {
+  const mode = type ? 'primary' : undefined;
   return (
     <Button
-      
       className={size}
       style={backgroundColor && { backgroundColor }}
       {...props}
       size={size}
-      type={mode}
-    >
+      type={type}
+      icon={icon}
+      >
       {label}
     </Button>
   );
@@ -25,9 +25,9 @@ const MyButton = ({ primary, backgroundColor, size, label,...props }) => {
 
 MyButton.propTypes = {
   /**
-   * x
+   * There are
    */
-  primary: PropTypes.bool,
+  type: PropTypes.oneOf(['primary', 'default', 'dashed','text','link']),
   /**
    * What background color to use
    */
@@ -44,13 +44,17 @@ MyButton.propTypes = {
    * Optional click handler
    */
   onClick: PropTypes.func,
+  /**
+   * Optional icon 
+   */
+  icon:PropTypes.oneOf(['<SearchOutlined />']),
 };
 
 MyButton.defaultProps = {
   backgroundColor: null,
-  primary: false,
   size: 'medium',
   onClick: undefined,
+  type: 'primary'
 };
 
 export default MyButton;
