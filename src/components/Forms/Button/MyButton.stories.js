@@ -9,6 +9,9 @@ export default {
     tags: ['autodocs'],
     argTypes: {
     backgroundColor: { control: 'color' },
+    type: {
+    control: { type: 'select', options: ['primary', 'default', 'dashed','text','link'] }
+    },
     size: {
     control: { type: 'select', options: ['small', 'medium', 'large'] }
     },
@@ -20,7 +23,7 @@ const Template = ({ label, ...args }) => <MyButton {...args}>{label}</MyButton>;
 
 export const Primary = Template.bind({});
 Primary.args = {
-primary: true,
+type: 'primary',
 label: 'Button',
 };
 
@@ -33,7 +36,7 @@ MyButton.propTypes = {
     /**
    * Is this the principal call to action on the page?
    */
-    primary: PropTypes.bool,
+    type: PropTypes.oneOf(['primary', 'default', 'dashed','text','link']),
     /**
    * What background color to use
    */
