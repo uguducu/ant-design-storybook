@@ -60,10 +60,26 @@ AlertDetail.args = {
     action: <Button size='medium'>Detail </Button>
 };
 
-
-
-export const SwitchableAlert = () => { const [showAlert, setShowAlert] = useState(false); return ( <div> <Switch checked={showAlert} onChange={() => setShowAlert(!showAlert)} style={{ marginBottom: '16px' }} /> {showAlert && ( <MyAlert type="info" showIcon message="Alert" description="This is an alert!" /> )} </div> ); };
-
+export const SwitchableAlert = () => {
+ const [showAlert, setShowAlert] = useState(false); 
+ return (
+<div>
+<Switch
+checked={showAlert}
+onChange={() => setShowAlert(!showAlert)}
+style={{ marginBottom: '16px' }}
+/>
+{showAlert && (
+<MyAlert
+ type="info"
+ showIcon
+ message="Alert"
+ description="This is an alert!"
+ />
+ )}
+</div>
+);
+};
 
 
 MyAlert.propTypes = {
